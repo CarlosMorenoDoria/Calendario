@@ -1,0 +1,111 @@
+<div mat-dialog-actions class="boton" >
+    <button   mat-icon-button (click)="onNoClick()" >
+      <mat-icon aria-label="Example icon-button with a heart icon" class="equis">clear</mat-icon>
+    </button>
+</div>
+
+<table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows
+       class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">          
+          <div class="example-element-name">Nombre: {{element.Nombre}} </div>
+          <div class="example-element-weight">Lugar: {{element.Lugar}} </div>
+          <div class="example-element-symbol">Fecha: {{element.Fecha}} </div>
+          <div class="example-element-position">Hora de Inicio: {{element.Hora_inicio}}</div>
+          <div class="example-element-position">Hora Final: {{element.Hora_fin}}</div>
+        </div>
+        <div class="example-element-description">
+          Descripción: {{element.Descripcion}}
+        </div>  
+        <div class="botones-editar-eliminar">
+          <button mat-raised-button class="editar" color="accent" (click)="editEvento(element)">Editar Evento</button>
+          <button mat-raised-button color="warn" (click)="deleteEvento(element)" >Eliminar Evento</button> 
+        </div>    
+        
+      </div> 
+    </td>        
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+
+
+
+
+
+<div class="newEvent">
+    <mat-expansion-panel [expanded]="true" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Crear Evento
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+    
+        <mat-form-field class="form" appearance="fill">
+          <mat-label>Nombre </mat-label>
+          <input matInput [(ngModel)]="nombre" [formControl]="nombreFormControl" >
+          <mat-error *ngIf="nombreFormControl.hasError('required')">
+            Por favor ingresar un nombre al evento
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form" appearance="fill">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput placeholder="Maximo 200 Caracteres"  [formControl]="descripcionFormControl" [(ngModel)]="descripcion"></textarea>
+          <mat-error *ngIf="descripcionFormControl.hasError('maxlength')">
+            Máximo puedes escribir 200 caracteres.
+          </mat-error>
+        </mat-form-field>
+        <br>
+      <mat-form-field class="form" appearance="fill">
+        <mat-label>Lugar</mat-label>
+        <mat-select [formControl]="lugarFormControl" (selectionChange)="changeLugar($event)">
+            <mat-option *ngFor="let item of lugares" [value]="item">{{item}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="lugarFormControl.hasError('required')">
+            Por favor ingresar el lugar del evento
+          </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form" appearance="fill">
+        <mat-label>Color</mat-label>
+        <mat-select [formControl]="colorFormControl" (selectionChange)="changeColor($event)">
+            <mat-option *ngFor="let item of colores" [value]="item">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field [ngClass]="{disabled : true}" class="form" appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput  [(ngModel)]="fechaEstatica" >
+      </mat-form-field>
+      <br>
+        <mat-label>Hora de inicio</mat-label>
+        <ngx-timepicker-field class="hora" [(ngModel)]="hInicio" [format]="24" ></ngx-timepicker-field>
+      <br>
+        <mat-label>Hora de finalización </mat-label>
+        <ngx-timepicker-field class="hora" [(ngModel)]="hFinal" [format]="24" ></ngx-timepicker-field>
+      <br>
+      <button *ngIf ="!descripcionFormControl.hasError('maxlength') && fecha!='' && hInicio!=undefined  && hFinal!=undefined && nombre!='' && lugar!='' "  mat-raised-button [style.background-color]= "btnColour"   (click)=crearEvento()>Crear Evento</button>
+    </mat-expansion-panel>
+</div>
+
+<div class="spinner">
+    <mat-spinner *ngIf="loader"></mat-spinner>
+</div>
+

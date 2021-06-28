@@ -1,0 +1,104 @@
+.newEvent{
+    width: 30%;
+    position: absolute;
+    top: 3%;
+    left: 1%;
+}
+.form{
+    width: 100%;
+}
+.hora{
+    color: rgb(240, 12, 12);
+}
+.timepicker-overlay {
+    z-index: 10000000 !important;
+}
+
+.timepicker-backdrop-overlay {
+    z-index: 10000000 !important;
+}
+.spinner{
+    position: absolute;
+    top: 50%;
+    left:50%;
+}
+.disabled {
+    pointer-events: none;
+    cursor: default !important;
+}
+.boton {
+    position: fixed;
+    top: 2%;
+    left: 85%;
+}
+.equis{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+.equis:hover{
+    color:yellow;
+}
+::ng-deep .my-panel .mat-dialog-container{
+    background-color: rgb(0 0 0 / 4%);
+}
+/* ::ng-deep .mat-expansion-panel {
+    color: rgb(18, 35, 190);
+  } */
+::ng-deep .hora {
+  color: rgb(0, 5, 15);
+}
+
+table {
+    width: 50%;
+    position: absolute;
+    top: 12%;
+    left: 40%;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .example-element-diagram {
+    min-width: 200px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+  
+  /* .example-element-symbol {
+    font-size: 16px;
+  } */
+  
+  .example-element-description {
+    padding: 16px;
+  }
+  
+  .example-element-description-attribution {
+    opacity: 0.5;
+  }
+  .botones-editar-eliminar{
+    margin-top: 90px;
+  }
+  .editar{
+    margin-right: 3px;
+  }

@@ -1,0 +1,63 @@
+<div class="newEvent">
+    <mat-expansion-panel [expanded]="true" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Editar Evento
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+    
+        <mat-form-field class="form" appearance="fill">
+          <mat-label>Nombre </mat-label>
+          <input matInput [(ngModel)]="nombre" [formControl]="nombreFormControl" >
+          <mat-error *ngIf="nombreFormControl.hasError('required')">
+            Por favor ingresar un nombre al evento
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form" appearance="fill">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput placeholder="Maximo 200 Caracteres"  [formControl]="descripcionFormControl" [(ngModel)]="descripcion"></textarea>
+          <mat-error *ngIf="descripcionFormControl.hasError('maxlength')">
+            Máximo puedes escribir 200 caracteres.
+          </mat-error>
+        </mat-form-field>
+        <br>
+      <mat-form-field class="form" appearance="fill">
+        <mat-label>Lugar</mat-label>
+        <mat-select [formControl]="lugarFormControl" [(ngModel)]="lugar" (selectionChange)="changeLugar($event)">
+            <mat-option *ngFor="let item of lugares" [value]="item">{{item}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="lugarFormControl.hasError('required')">
+            Por favor ingresar el lugar del evento
+          </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form" appearance="fill">
+        <mat-label>Color</mat-label>
+        <mat-select [formControl]="colorFormControl" [(ngModel)]="color"(selectionChange)="changeColor($event)">
+            <mat-option *ngFor="let item of colores" [value]="item">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field  class="form" appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput  [(ngModel)]="fecha" [formControl]="fechaFormControl">
+        <mat-error *ngIf="fechaFormControl.hasError('required')">
+            Por favor ingresar la fecha del evento 
+        </mat-error>
+      </mat-form-field>
+      <br>
+        <mat-label>Hora de inicio</mat-label>
+        <ngx-timepicker-field class="hora" [(ngModel)]="hInicio" [format]="24" [defaultTime]="hInicio"></ngx-timepicker-field>
+      <br>
+        <mat-label>Hora de finalización </mat-label>
+        <ngx-timepicker-field class="hora" [(ngModel)]="hFinal" [format]="24" [defaultTime]="hFinal"></ngx-timepicker-field>
+      <br>
+      <button *ngIf ="!descripcionFormControl.hasError('maxlength') && fecha!='' && hInicio!=''  && hFinal!='' && nombre!='' && lugar!='' "  mat-raised-button [style.background-color]= "btnColour"  (click)=editEvento()>Aplicar Cambios</button>
+      <button mat-raised-button color="warn" (click)="onNoClick()"> Cancelar</button>
+    </mat-expansion-panel>
+</div>
+
+<div class="spinner">
+    <mat-spinner *ngIf="loader"></mat-spinner>
+</div>

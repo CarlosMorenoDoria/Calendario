@@ -1,0 +1,34 @@
+<h1 style="text-align: center"> MARZO 2021</h1>
+<div class="wrapper-calendar">
+	<ol>
+		<li *ngFor="let day of week" class="day-name">{{day | slice:0:3}}</li>
+
+		<li (click)="clickDay(event[0])" [style.gridColumnStart]="'auto'"
+		*ngFor="let event of locateEventDay;" >
+			<span >{{event[0]}}</span>
+			<br>
+			<span [style.color]= "event[2]">{{event[1]}}</span>
+			<br>
+			<span [style.color]= "event[4]">{{event[3]}}</span>
+			<br>
+			<span [style.color]= "event[6]">{{event[5]}}</span>
+		</li>
+        <!-- <li (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+         *ngFor="let day of monthSelect;let first = first" >	
+			<span>		
+				{{day?.value}}
+			</span>
+		</li> -->
+		<!-- <ng-container *ngFor="let day of monthSelect;let first = first">
+			<li (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+         	*ngFor="let event of locateEventDay" >				
+				<span>		
+					{{day?.value}}
+				</span>
+				<span>
+					{{event}}
+				</span>
+			</li>
+		  </ng-container> -->
+	</ol>
+</div>
