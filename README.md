@@ -29,7 +29,7 @@ _En la carpeta BackEnd, donde se encuentra el archivo "docker-compose.yml" ejecu
 docker-compose up 
 ```
 
-_Esperar hasta que en la terminal se vea el siguiente mensaje_
+_Esperar hasta que en la terminal se vea el siguiente mensaje. Tarda unos momentos_
 
 ```
 app         | server on Port= 3000
