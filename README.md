@@ -4,7 +4,7 @@ APP Desarrollada en Nodejs + Angular para prueba técnica de SlabCode, presentad
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán ejecutar la APP, clona la aplicación con el siguiente enlacehttps://github.com/CarlosMorenoDoria/Calendario.git
+Estas instrucciones te permitirán ejecutar la APP, clona la aplicación con el siguiente enlace https://github.com/CarlosMorenoDoria/Calendario.git
 
 Mira **BackEnd** para encontrar los archivos relacionados al backend de la aplicación.
 
