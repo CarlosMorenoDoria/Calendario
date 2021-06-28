@@ -29,14 +29,25 @@ _En la carpeta BackEnd, donde se encuentra el archivo "docker-compose.yml" ejecu
 docker-compose up 
 ```
 
-_Es importante tener disponible el puerto 3306 para la ejecución de la base de datos MySQL_ y el puerto 3000 para la ejecución del back
+_Esperar hasta que en la terminal se vea el siguiente mensaje_
 
-_Luego para ejecutar la parte del FrontEnd. En la carpeta frontend ejecuta el siguiente comando en una terminal_
+```
+app         | server on Port= 3000
+app         | DB is connected
+```
+_Con esto sabras que el backend está en ejecución. Es importante tener disponible el puerto 3306 para la ejecución de la base de datos MySQL_ y el puerto 3000 para la ejecución del back
+
+_Luego para ejecutar la parte del FrontEnd. En la carpeta frontend ejecuta los siguientes comando en una terminal_
+
+```
+npm install
+```
+
+Para instalar dependencias Y seguido
 
 ```
 ng serve
 ```
-
 _A continuación podrás abrir una ventana en tu navegador de preferencia con la dirección localhost:4200_
 
 
