@@ -1,4 +1,4 @@
-# Calendario Appa
+# Calendario App
 
 APP Desarrollada en Nodejs + Angular para prueba técnica de SlabCode, presentada y desarrollada por Carlos Moreno Doria
 
@@ -29,7 +29,7 @@ _En la carpeta BackEnd, donde se encuentra el archivo "docker-compose.yml" ejecu
 docker-compose up 
 ```
 
-_Es importante tener disponible el puerto 3306 para la ejecución de la base de datos MySQL_
+_Es importante tener disponible el puerto 3306 para la ejecución de la base de datos MySQL_ y el puerto 3000 para la ejecución del back
 
 _Luego para ejecutar la parte del FrontEnd. En la carpeta frontend ejecuta el siguiente comando en una terminal_
 
