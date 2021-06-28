@@ -31,7 +31,7 @@ services:
         networks:
             - app-tier 
         volumes: 
-            - .:/app
-            - '/app/node_modules'
+            - ./:/app
+            # - '/app/node_modules'
         depends_on: 
             - database

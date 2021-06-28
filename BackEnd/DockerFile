@@ -16,4 +16,6 @@ RUN apk update && apk add bash
 
 # CMD ["npm", "run", "dev"]
 
-CMD /wait-for-it.sh database:3306 -- npm run dev
+CMD [ -d "node_modules" ] && /wait-for-it.sh database:3306 -- npm run dev || npm ci && npm run dev
+
+# CMD /wait-for-it.sh database:3306 -- npm run dev
