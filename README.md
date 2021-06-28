@@ -44,6 +44,8 @@ _A continuación podrás abrir una ventana en tu navegador de preferencia con la
 
 ## Construido con 🛠️
 
+* [Html] - Esqueleto del calendario
+* [CSS] - Diseño del calendario 
 * [Nodejs](https://nodejs.org/es/) - Nodejs Framework
 * [Angular](https://angular.io/) - Como FrontEnd
 * [Docker](https://docs.docker.com/) - Usado para ejecutar el BackEnd
