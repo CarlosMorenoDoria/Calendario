@@ -1,4 +1,4 @@
-# Calendario Appa
+# Calendario App
 
 APP Desarrollada en Nodejs + Angular para prueba técnica de SlabCode, presentada y desarrollada por Carlos Moreno Doria
 
